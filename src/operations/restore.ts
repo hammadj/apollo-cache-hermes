@@ -120,7 +120,8 @@ function restoreEntityReferences(nodesMap: NodeSnapshotMap, cacheContext: CacheC
 function tryRestoreSparseArray(data: NestedValue<JsonValue | undefined>, possibleSparseArrayPaths: PathPart[], idx: number) {
   if (data === undefined) {
     // There should never be 'undefined'
-    throw new Error(`Unexpected 'undefined' in the path [${possibleSparseArrayPaths}] at index ${idx}`);
+    // throw new Error(`Unexpected 'undefined' in the path [${possibleSparseArrayPaths}] at index ${idx}`);
+    return;
   }
 
   if (idx >= possibleSparseArrayPaths.length || data === null || isScalar(data)) {
